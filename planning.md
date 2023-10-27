@@ -30,21 +30,21 @@ Logic Flow: ![Mastermind Logic Flow](image.png)
 Wireframe: ![Mastermind Wireframe](image-1.png)
 
 Pseudocode:
-    <!-- 1. Prompt user to start the game -->
-        <!-- Start button -->
-        <!-- Play Again button -->
-        <!-- After user starts game, have a code of colors randomly generated and applied to the top row while remaining hidden -->
-    <!-- 2. Gameplay Loop -->
-        <!-- Player selects 4 colors in the order of their guess (i.e. first clicked color corresponds to first circle in the submitted guess) -->
-        <!-- The guess indicator section to the side of the gameboard renders with black, white, or nothing depending on if the corresponding color in the guess is part of the solution and if it is, the location of the color -->
-            <!-- Black: correct guess, correct spot -->
-            <!-- White: correct guess, incorrect spot -->
-            <!-- Nothing: incorrect guess -->
-        <!-- Player has 6 attempts to guess code -->
-            <!-- Will try to keep rows of unused guesses hidden until they are populated, but this may end up as an icebox feature -->
-            <!-- If they guess within the six attempts, a congratulations screen pops up -->
-            <!-- If they fail to guess within six attempts, a game over screen pops up -->
-                <!-- Both screens contain a 'Play Again' button and 'Quit' buttons -->
-                    <!-- See section 1 for purpose of 'Play Again' button -->
-                    <!-- Quit button will either: reload the page to the initial state OR exit out of the popup and show the board in its current state. Ideally the latter, but will depend on feasability -->
-                    <!-- Game over screen should immediately pop up if all 6 guesses are used and are not correct -->
+    1. Prompt user to start the game
+        Start button
+        Play Again button
+        After user starts game, have a code of colors randomly generated and applied to the top row while remaining hidden
+    2. Gameplay Loop
+        Player selects 4 colors in the order of their guess (i.e. first clicked color corresponds to first circle in the submitted guess)
+        The guess indicator section to the side of the gameboard renders with black, white, or nothing depending on if the corresponding color in the guess is part of the solution and if it is, the location of the color
+            Black: correct guess, correct spot
+            White: correct guess, incorrect spot
+            Nothing: incorrect guess
+        Player has 6 attempts to guess code
+            Will try to keep rows of unused guesses hidden until they are populated, but this may end up as an icebox feature
+            If they guess within the six attempts, a congratulations screen pops up
+            If they fail to guess within six attempts, a game over screen pops up
+                Both screens contain a 'Play Again' button and 'Quit' buttons
+                    See section 1 for purpose of 'Play Again' button
+                    Quit button will either: reload the page to the initial state OR exit out of the popup and show the board in its current state. Ideally the latter, but will depend on feasability
+                    Game over screen should immediately pop up if all 6 guesses are used and are not correct
