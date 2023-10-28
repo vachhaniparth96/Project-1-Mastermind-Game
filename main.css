@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: .5fr 3fr;
+    background-color: rgb(254,248,222);
+    border-radius: 5cqb;
+    margin: auto 25vmin;
+}
+
+.game-control {
+    display: flex;
+    justify-content: center;
+}
+
+.game-pin {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+}
+
+.accuracy {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.45rem;
+}
+.guess-input {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+}
+
+.guess {
+    border-radius: 50%;
+}
+#start {
+    background-color: lime;
+    padding: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+}
+#red {
+    background-color: red;
+    color: transparent;
+}
+#blue {
+    background-color: blue;
+    color: transparent;
+}
+#yellow {
+    background-color: yellow;
+    color: transparent;
+}
+#green {
+    background-color: green;
+    color: transparent;
+}
+#black {
+    background-color: black;
+    color: transparent;
+}
+#white {
+    background-color: white;
+    color: transparent;
+}
+
+#answer {
+    /* border: 2px solid blue */
+}
+#leave-empty {
+    border: 2px solid blue;
+    visibility: hidden;
+}
+

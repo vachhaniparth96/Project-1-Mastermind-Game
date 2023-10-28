@@ -3,11 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mastermind</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="app.js"></script>
 </head>
 <body>
-   <h1>Hello World</h1> 
+    <header>
+        <h1>M A S T E R M I N D</h1>
+    </header>
+    <div class="game-control">
+        <button class="start" id="start">Start</button>
+    </div>
+    <main>
+        <!-- <button></button> -->
+        <div class="acc left">
+            <div class="accuracy" id="leave-empty">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+                <div class="accuracy" id="accuracy6">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+            <div class="accuracy" id="accuracy5">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+            <div class="accuracy" id="accuracy4">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+            <div class="accuracy" id="accuracy3">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+            <div class="accuracy" id="accuracy2">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+            <div class="accuracy" id="accuracy1">
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+                <div class="accuracy-pin">o</div>
+            </div>
+        </div>
+
+        <div class="game-board right">
+            <div class="game-pin" id="answer">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+            <div class="game-pin" id="guess6">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+            <div class="game-pin" id="guess5">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+            <div class="game-pin" id="guess4">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+            <div class="game-pin" id="guess3">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+            <div class="game-pin" id="guess2">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+            <div class="game-pin" id="guess1">
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+                <div class="guess-pin">O</div>
+            </div>
+        </div>
+            
+    </main>
+    
+    <div class="guess-input">
+        <button class="guess" id="red">R</button>
+        <button class="guess" id="blue">B</button>
+        <button class="guess" id="yellow">Y</button>
+        <button class="guess" id="green">G</button>
+        <button class="guess" id="black">B</button>
+        <button class="guess" id="white">W</button>
+    </div>
 </body>
 </html>
