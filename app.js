@@ -26,7 +26,7 @@ console.dir(popup)
 //win/lose
 // winEl = document.querySelector('#win')
 // loseEl = document.querySelector('#lose')
-quitButtonEl = document.querySelectorAll('#quit')
+quitButtonEl = document.querySelector('#quit')
 playAgainButtonEl = document.querySelector('#play-again')
 
 // event listeners
@@ -37,10 +37,13 @@ greenButtonEl.addEventListener('click', handleClick)
 blackButtonEl.addEventListener('click', handleClick)
 whiteButtonEl.addEventListener('click', handleClick)
 quitButtonEl.addEventListener('click', () => {
-    popup.close()
+    popup.close();
 })
 startButtonEl.addEventListener('click', startGame)
-// playAgainButtonEl.addEventListener('click', playAgain)
+playAgainButtonEl.addEventListener('click', () => {
+    popup.close();
+    init();
+})
 
 // functions
 // console.log(playAgainButtonEl)
