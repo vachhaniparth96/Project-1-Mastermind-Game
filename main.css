@@ -10,8 +10,8 @@ header {
 main {
     display: grid;
     grid-template-columns: .5fr 3fr;
-    background-color: rgb(254,248,222);
-    border-radius: 5cqb;
+    background-color: rgb(227, 213, 152);
+    border-radius: 40px;
     margin: auto 25vmin;
 }
 
@@ -29,7 +29,8 @@ main {
 .accuracy {
     display: flex;
     justify-content: space-evenly;
-    padding: 1.45rem;
+    padding: 2rem;
+
 }
 .guess-input {
     display: flex;
@@ -40,6 +41,21 @@ main {
 .guess {
     border-radius: 50%;
 }
+
+.guess-pin {
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+.accuracy-pin {
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: chocolate;
+}
+
 #start {
     background-color: lime;
     padding: 1rem;
@@ -48,34 +64,40 @@ main {
 }
 #red {
     background-color: red;
-    color: transparent;
+    width: 25px;
+    height: 25px;
 }
 #blue {
     background-color: blue;
-    color: transparent;
+    width: 25px;
+    height: 25px;
 }
 #yellow {
     background-color: yellow;
-    color: transparent;
+    width: 25px;
+    height: 25px;
 }
 #green {
     background-color: green;
-    color: transparent;
+    width: 25px;
+    height: 25px;
 }
 #black {
     background-color: black;
-    color: transparent;
+    width: 25px;
+    height: 25px;
 }
 #white {
     background-color: white;
-    color: transparent;
+    width: 25px;
+    height: 25px;
 }
 
 #answer {
     /* border: 2px solid blue */
 }
 #leave-empty {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     visibility: hidden;
 }
 
