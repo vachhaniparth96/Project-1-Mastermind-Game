@@ -11,19 +11,22 @@ let round = 1; //will increase to maximum of 6 to allow for looping of the base 
 let codeCracked = false;
 // cached elements
 //start button
-startButtonEl = document.querySelector('#start')
+const startButtonEl = document.querySelector('#start')
 //color buttons
-redButtonEl = document.querySelector('#red')
-blueButtonEl = document.querySelector('#blue')
-yellowButtonEl = document.querySelector('#yellow')
-greenButtonEl = document.querySelector('#green')
-blackButtonEl = document.querySelector('#black')
-whiteButtonEl = document.querySelector('#white')
+const redButtonEl = document.querySelector('#red')
+const blueButtonEl = document.querySelector('#blue')
+const yellowButtonEl = document.querySelector('#yellow')
+const greenButtonEl = document.querySelector('#green')
+const blackButtonEl = document.querySelector('#black')
+const whiteButtonEl = document.querySelector('#white')
+const popup = document.querySelector('#popup')
+console.log(popup)
+console.dir(popup)
 
 //win/lose
-winEl = document.querySelector('#win')
-loseEl = document.querySelector('#lose')
-quitButtonEl = document.querySelector('#quit')
+// winEl = document.querySelector('#win')
+// loseEl = document.querySelector('#lose')
+quitButtonEl = document.querySelectorAll('#quit')
 playAgainButtonEl = document.querySelector('#play-again')
 
 // event listeners
@@ -33,13 +36,15 @@ yellowButtonEl.addEventListener('click', handleClick)
 greenButtonEl.addEventListener('click', handleClick)
 blackButtonEl.addEventListener('click', handleClick)
 whiteButtonEl.addEventListener('click', handleClick)
-quitButtonEl.addEventListener('click', quitGame)
+quitButtonEl.addEventListener('click', () => {
+    popup.close()
+})
 startButtonEl.addEventListener('click', startGame)
-playAgainButtonEl.addEventListener('click', startGame)
+// playAgainButtonEl.addEventListener('click', playAgain)
 
 // functions
-console.log(playAgainButtonEl)
-console.log(quitButtonEl)
+// console.log(playAgainButtonEl)
+// console.log(quitButtonEl)
 console.log(startButtonEl)
 function generateCode() { //generates the code to be guessed by the player
     for(let i=0;i<4;i++) {
@@ -137,14 +142,22 @@ function check() {
 
 function checkForWin(){
     if(guess.toString() === code.toString()) {
-        winEl.style.visibility = 'visible';
+        // winEl.style.visibility = 'visible';
+        // popup.innerText='Congratulations! You have cracked the code!'
+        let p = document.createElement('p')
+        p.innerText = 'Congratulations! You have cracked the code!'
+        popup.insertBefore(p, playAgainButtonEl)
+        popup.showModal();
         codeCracked = true;
         code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
             gamePinColor(i+1, el, '#answer');
         })
     } else {
         if(round === 6) {
-            loseEl.style.visibility = 'visible';
+            let p = document.createElement('p')
+            p.innerText = 'You have failed to crack the code.'
+            popup.insertBefore(p, playAgainButtonEl)
+            popup.showModal();
             code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
                 gamePinColor(i+1, el, '#answer');
             })
@@ -165,18 +178,20 @@ function init() {
     location.reload();
 }
 
-function quitGame(e) {
-    e.preventDefault();
-    if(e.target.id === 'quit'){
-    loseEl.style.visibility = 'hidden';
-    winEl.style.visibility = 'hidden';
-    console.log(e.target.id)
-    }
-}
+// function quitGame(e) {
+//     e.preventDefault();
+//         loseEl.close();
+//         winEl.close();
+// }
+// //     loseEl.style.visibility = 'hidden';
+//     // winEl.style.visibility = 'hidden';
+// //     console.log(e.target.id)
+//     }
+// }
 
 function startGame(e) {
     e.preventDefault();
-    if(e.target.id==='start' || e.target.id === 'play-again') {
+    if(e.target.id==='start') {
         init();
         console.log(e.target.id)
     }
