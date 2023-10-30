@@ -23,6 +23,8 @@ whiteButtonEl = document.querySelector('#white')
 //win/lose
 winEl = document.querySelector('#win')
 loseEl = document.querySelector('#lose')
+quitButtonEl = document.querySelector('#quit')
+playAgainButtonEl = document.querySelector('#play-again')
 
 // event listeners
 redButtonEl.addEventListener('click', handleClick)
@@ -31,8 +33,14 @@ yellowButtonEl.addEventListener('click', handleClick)
 greenButtonEl.addEventListener('click', handleClick)
 blackButtonEl.addEventListener('click', handleClick)
 whiteButtonEl.addEventListener('click', handleClick)
+quitButtonEl.addEventListener('click', quitGame)
+startButtonEl.addEventListener('click', startGame)
+playAgainButtonEl.addEventListener('click', startGame)
 
 // functions
+console.log(playAgainButtonEl)
+console.log(quitButtonEl)
+console.log(startButtonEl)
 function generateCode() { //generates the code to be guessed by the player
     for(let i=0;i<4;i++) {
         let codeSequence = Math.floor(Math.random()*colors.length)
@@ -78,11 +86,11 @@ function handleClick(e) {
     // console.log(e.target)
     // console.log(guess)
     render();
+    // console.log(e.target.id)
+    // console.log(quitButtonEl)
+    // console.dir(quitButtonEl)
 }
 
-function getGuess() {
-    
-}
 function render() {
     console.log(guess)
         check()
@@ -120,11 +128,11 @@ function check() {
     })
 
     checkForWin()
-    console.log(guess)
-    console.log(codeCracked)
+    // console.log(guess)
+    // console.log(codeCracked)
     round++;
 }
-console.log(round)
+// console.log(round)
 }
 
 function checkForWin(){
@@ -134,7 +142,6 @@ function checkForWin(){
         code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
             gamePinColor(i+1, el, '#answer');
         })
-        
     } else {
         if(round === 6) {
             loseEl.style.visibility = 'visible';
@@ -155,6 +162,22 @@ function init() {
     guess = [];
     guessAcc = [];
     round = 1;
-    location.reload;
+    location.reload();
+}
 
+function quitGame(e) {
+    e.preventDefault();
+    if(e.target.id === 'quit'){
+    loseEl.style.visibility = 'hidden';
+    winEl.style.visibility = 'hidden';
+    console.log(e.target.id)
+    }
+}
+
+function startGame(e) {
+    e.preventDefault();
+    if(e.target.id==='start' || e.target.id === 'play-again') {
+        init();
+        console.log(e.target.id)
+    }
 }

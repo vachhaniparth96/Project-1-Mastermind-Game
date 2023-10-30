@@ -13,6 +13,7 @@ main {
     background-color: rgb(227, 213, 152);
     border-radius: 40px;
     margin: auto 25vmin;
+    z-index: -1;
 }
 
 .game-control {
@@ -56,15 +57,43 @@ main {
     background-color: chocolate;
 }
 
-.win-popup {
+
+.popup {
+    /* display: flex;
+    flex-direction: column; */
+    position: relative;
+    position: fixed;
+    border: 1px solid black;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    text-align: center;
     visibility: hidden;
+    /* background-color: rgb(191, 178, 117); */
+    background-color: red;
+    margin: 50vmin;
 }
 
-.lose-popup {
-    visibility: hidden;
+.popup-buttons{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #start {
+    background-color: lime;
+    padding: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+}
+#play-again{
+    background-color: lime;
+    padding: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+}
+#quit {
     background-color: lime;
     padding: 1rem;
     border-radius: .25rem;
