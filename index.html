@@ -13,6 +13,17 @@
     </header>
     <div class="game-control">
         <button class="start" id="start">Start</button>
+        <button class="instructions" id="instructions">Instructions</button>
+        <dialog class="instructions-popup">
+            <p>Mastermind is a code-breaking game, where the purpose of the game is to guess the code within the specified amount of attempts. The rules are the following: <br><br>The player will make a guess of a sequence of four colors, after which the guess and its accuracy will pop up on the board. The accuracy logic is as follows: </p>
+            <ul>
+                <li>Black: Depending on the amount of black, one or more of the colors is correct and in the correct position</li>
+                <li>White: Depending on the amount of white, one or more of the colors is correct, but not in the correct position</li>
+                <li>Nothing: Depending on the amount of unupdated pins, one or more of the colors is not in the sequence</li>
+            </ul>
+            <p>The code will be randomly generated and the user will have 6 attempts to guess the code.</p>
+            <button class="close" id="close">Close</button>
+        </dialog>
     </div>
     <main>
         <!-- <button></button> -->

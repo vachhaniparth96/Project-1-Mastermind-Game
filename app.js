@@ -20,14 +20,15 @@ const greenButtonEl = document.querySelector('#green')
 const blackButtonEl = document.querySelector('#black')
 const whiteButtonEl = document.querySelector('#white')
 const popup = document.querySelector('#popup')
-console.log(popup)
-console.dir(popup)
+const instructions = document.querySelector('.instructions-popup')
 
 //win/lose
 // winEl = document.querySelector('#win')
 // loseEl = document.querySelector('#lose')
 quitButtonEl = document.querySelector('#quit')
 playAgainButtonEl = document.querySelector('#play-again')
+instructionsButtonEl = document.querySelector('#instructions')
+closeButtonEl = document.querySelector('#close')
 
 // event listeners
 redButtonEl.addEventListener('click', handleClick)
@@ -44,11 +45,17 @@ playAgainButtonEl.addEventListener('click', () => {
     popup.close();
     init();
 })
+instructionsButtonEl.addEventListener('click', () => {
+    instructions.showModal();
+})
+closeButtonEl.addEventListener('click',() => {
+    instructions.close();
+})
 
 // functions
 // console.log(playAgainButtonEl)
 // console.log(quitButtonEl)
-console.log(startButtonEl)
+// console.log(startButtonEl)
 function generateCode() { //generates the code to be guessed by the player
     for(let i=0;i<4;i++) {
         let codeSequence = Math.floor(Math.random()*colors.length)
