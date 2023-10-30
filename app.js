@@ -7,6 +7,8 @@ const accColors = ['black', 'white', 'chocolate']
 let code = [];
 let guess =[];
 let guessAcc = [];
+let round = 1; //will increase to maximum of 6 to allow for looping of the base functionality
+let codeCracked = false;
 // cached elements
 //start button
 startButtonEl = document.querySelector('#start')
@@ -61,8 +63,8 @@ function accPinColor(pin, colorIndex, id) {
     } else if(accColors[colorIndex]==='chocolate') {
         accPin.style.backgroundColor ='chocolate';
     }
-    console.log(accPin);
-    console.log(accColors[colorIndex]);
+    // console.log(accPin);
+    // console.log(accColors[colorIndex]);
 }
 
 function handleClick(e) {
@@ -74,23 +76,16 @@ function handleClick(e) {
     render();
 }
 
+function getGuess() {
+    
+}
 function render() {
-    if(guess.length === 4) {
-        guess.forEach((el,i)=> {
-            gamePinColor(i+1,el,'#guess1')
-        })
-
-        console.log(guess)
-        console.log(code)
-
-        checkAccuracy(guess,code);
-        console.log(guessAcc)
-        guessAcc.forEach((el,i) => {
-            accPinColor(i+1,el,'#accuracy1')
-        })
+    console.log(guess)
+        check()
+        // console.log(code)
+        // console.log(guessAcc)
     }
 
-}
 
 function checkAccuracy(guess, code) {
     for(let i=0;i<guess.length;i++) {
@@ -113,3 +108,37 @@ generateCode()
 code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
     gamePinColor(i+1, el, '#answer');
 })
+
+function check() {
+    if(guess.length === 4) {
+        guess.forEach((el,i)=> {
+            gamePinColor(i+1,el,'#guess'+round)
+        })
+    checkAccuracy(guess,code);
+    guessAcc.forEach((el,i) => {
+        accPinColor(i+1,el,'#accuracy'+round)
+    })
+
+    checkForWin()
+    console.log(guess)
+    console.log(codeCracked)
+    round++;
+}
+console.log(round)
+}
+
+function checkForWin() {
+    guess.forEach(function(el,i) {
+        if(el == code[i]) {
+            console.log(el, code[i])
+            console.log('Congratulations! You have cracked the code!')
+            codeCracked = true;
+        } else if (round === 6) {
+            console.log('You have failed to crack the code')
+        }
+        codeCracked = false;
+    })
+    guess = [];
+    guessAcc=[];
+    return codeCracked;
+}
