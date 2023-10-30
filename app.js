@@ -20,6 +20,10 @@ greenButtonEl = document.querySelector('#green')
 blackButtonEl = document.querySelector('#black')
 whiteButtonEl = document.querySelector('#white')
 
+//win/lose
+winEl = document.querySelector('#win')
+loseEl = document.querySelector('#lose')
+
 // event listeners
 redButtonEl.addEventListener('click', handleClick)
 blueButtonEl.addEventListener('click', handleClick)
@@ -105,10 +109,6 @@ function checkAccuracy(guess, code) {
 generateCode()
 // console.log(code)
 
-code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
-    gamePinColor(i+1, el, '#answer');
-})
-
 function check() {
     if(guess.length === 4) {
         guess.forEach((el,i)=> {
@@ -127,18 +127,34 @@ function check() {
 console.log(round)
 }
 
-function checkForWin() {
-    guess.forEach(function(el,i) {
-        if(el == code[i]) {
-            console.log(el, code[i])
-            console.log('Congratulations! You have cracked the code!')
-            codeCracked = true;
-        } else if (round === 6) {
-            console.log('You have failed to crack the code')
+function checkForWin(){
+    if(guess.toString() === code.toString()) {
+        winEl.style.visibility = 'visible';
+        codeCracked = true;
+        code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
+            gamePinColor(i+1, el, '#answer');
+        })
+        
+    } else {
+        if(round === 6) {
+            loseEl.style.visibility = 'visible';
+            code.forEach((el,i) => { //displays the secret code in the answer box. Will move to an if statement so that it only displays in winning or losing conditions.
+                gamePinColor(i+1, el, '#answer');
+            })
+            
+        } else {
+            guess = [];
+            guessAcc=[];
         }
-        codeCracked = false;
-    })
-    guess = [];
-    guessAcc=[];
+    }
     return codeCracked;
+}
+
+function init() {
+    code = [];
+    guess = [];
+    guessAcc = [];
+    round = 1;
+    location.reload;
+
 }

@@ -56,6 +56,14 @@ main {
     background-color: chocolate;
 }
 
+.win-popup {
+    visibility: hidden;
+}
+
+.lose-popup {
+    visibility: hidden;
+}
+
 #start {
     background-color: lime;
     padding: 1rem;
