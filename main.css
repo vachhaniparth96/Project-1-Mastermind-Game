@@ -82,6 +82,7 @@ main {
     width: 25px;
     height: 25px;
 }
+
 .accuracy-pin {
     border-radius: 50%;
     width: 10px;
@@ -111,6 +112,7 @@ main {
     margin: 160px auto;
     max-width: 400px;
 }
+
 .popup-buttons{
     display: flex;
     justify-content: space-evenly;
@@ -167,31 +169,37 @@ main {
     margin-bottom: 1rem;
     margin-left: 1rem;
 }
+
 #red {
     background-color: red;
     width: 25px;
     height: 25px;
 }
+
 #blue {
     background-color: blue;
     width: 25px;
     height: 25px;
 }
+
 #yellow {
     background-color: yellow;
     width: 25px;
     height: 25px;
 }
+
 #green {
     background-color: green;
     width: 25px;
     height: 25px;
 }
+
 #black {
     background-color: black;
     width: 25px;
     height: 25px;
 }
+
 #white {
     background-color: white;
     width: 25px;

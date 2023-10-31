@@ -63,7 +63,7 @@ function init() {
     code = [];
     guess = [];
     guessAcc = [];
-    round = 1;
+    guessAttempt = 1;
     location.reload();
 }
 
@@ -97,7 +97,7 @@ function eraseButton(e) {
     e.preventDefault();
     guess.pop();
     guessDock.pop();
-    for(let i=4;i>guessDock.length;i--) {
+    for(let i=4;i>guessDock.length;i--) { //resets the dock color of the removed guess to gray if the user hits erase to remove the last input in the guess
         document.querySelector(`#guess-dock > div:nth-child(${i}`).style.backgroundColor = 'gray'
     }
 }
@@ -105,7 +105,7 @@ function submitButton(e) {
     e.preventDefault();
     if(guess.length===4) {
         check();
-        for(let i=1;i<=guessDock.length;i++){
+        for(let i=1;i<=guessDock.length;i++){ //resets the dock color to gray after submitting the guess
             document.querySelector(`#guess-dock > div:nth-child(${i}`).style.backgroundColor = 'gray'
         }
         guessDock = [];
@@ -152,9 +152,6 @@ function dockPinColor(pinNumber, index, id) { //function to change colors of the
     } else if(colors[index]=== 'white') {
         document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "white";
     }
-    // if(guessDock.length === 4 ) {
-    //     document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'gray';
-    // }
 }
 
 function accPinColor(pinNumber, index, id) { //function to change the colors of the accuracy pins based off the submitted guess
