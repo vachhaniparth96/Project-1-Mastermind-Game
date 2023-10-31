@@ -54,6 +54,11 @@ main {
 .guess-dock {
     display: flex;
     justify-content: center;
+}
+
+.guess-action {
+    display: flex;
+    justify-content: center;
     padding: 1rem;
     margin-top: 1rem;
 }
@@ -118,29 +123,49 @@ main {
     margin-bottom: 1rem;
     margin-right: 1rem;
 }
+
 #instructions {
     background-color: lime;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: .25rem;
 }
+
 #close {
     background-color: lime;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: .25rem;
 }
+
 #play-again{
     background-color: lime;
     padding: 1rem;
     border-radius: .25rem;
     margin-bottom: 1rem;
 }
+
 #quit {
     background-color: lime;
     padding: 1rem;
     border-radius: .25rem;
     margin-bottom: 1rem;
+}
+
+#erase {
+    background-color: lime;
+    padding: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+}
+
+#submit {
+    background-color: lime;
+    padding: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 #red {
     background-color: red;

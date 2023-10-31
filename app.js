@@ -10,8 +10,11 @@ let guessAttempt = 1; //will increase to maximum of 6 to allow for looping of th
 let codeCracked = false;
 
 // cached elements
-//start button
+//base buttons
 const startButtonEl = document.querySelector('#start');
+const instructionsButtonEl = document.querySelector('#instructions');
+const eraseButtonEl = document.querySelector('#erase');
+const submitButtonEl = document.querySelector('#submit')
 
 //color buttons
 const redButtonEl = document.querySelector('#red');
@@ -27,7 +30,6 @@ const popup = document.querySelector('#popup');
 const instructions = document.querySelector('.instructions-popup');
 const quitButtonEl = document.querySelector('#quit');
 const playAgainButtonEl = document.querySelector('#play-again');
-const instructionsButtonEl = document.querySelector('#instructions');
 const closeButtonEl = document.querySelector('#close');
 
 
@@ -38,22 +40,79 @@ yellowButtonEl.addEventListener('click', handleClick);
 greenButtonEl.addEventListener('click', handleClick);
 blackButtonEl.addEventListener('click', handleClick);
 whiteButtonEl.addEventListener('click', handleClick);
-quitButtonEl.addEventListener('click', () => {
-    popup.close();
-});
-startButtonEl.addEventListener('click', startGame)
-playAgainButtonEl.addEventListener('click', () => {
-    popup.close();
-    init();
-});
-instructionsButtonEl.addEventListener('click', () => {
-    instructions.showModal();
-});
-closeButtonEl.addEventListener('click',() => {
-    instructions.close();
-});
+quitButtonEl.addEventListener('click', quitGame);
+startButtonEl.addEventListener('click', startGame);
+playAgainButtonEl.addEventListener('click', playAgain);
+instructionsButtonEl.addEventListener('click', showInstructions);
+closeButtonEl.addEventListener('click', closeInstructions);
+eraseButtonEl.addEventListener('click', eraseButton);
+submitButtonEl.addEventListener('click', submitButton);
 
 // functions
+//Event Handler Functions
+function handleClick(e) {
+    if(guess.length<4) { //pushes colorindex values into the guess array and the guessDock array as the user selects them
+        guess.push(colors.indexOf(e.target.id));
+        guessDock.push(colors.indexOf(e.target.id));
+        guessDock.forEach((el,i) =>{
+            dockPinColor(i+1,el,'#guess-dock');
+        }) 
+    }
+}
+function init() {
+    code = [];
+    guess = [];
+    guessAcc = [];
+    round = 1;
+    location.reload();
+}
+
+function startGame(e) {
+    e.preventDefault();
+    init();
+}
+
+function quitGame(e) {
+    e.preventDefault();
+    popup.close();
+}
+
+function playAgain(e) {
+    e.preventDefault();
+    popup.close();
+    init();
+}
+
+function showInstructions(e) {
+    e.preventDefault();
+    instructions.showModal();
+}
+
+function closeInstructions(e) {
+    e.preventDefault();
+    instructions.close();
+}
+
+function eraseButton(e) {
+    e.preventDefault();
+    guess.pop();
+    guessDock.pop();
+    for(let i=4;i>guessDock.length;i--) {
+        document.querySelector(`#guess-dock > div:nth-child(${i}`).style.backgroundColor = 'gray'
+    }
+}
+function submitButton(e) {
+    e.preventDefault();
+    if(guess.length===4) {
+        check();
+        for(let i=1;i<=guessDock.length;i++){
+            document.querySelector(`#guess-dock > div:nth-child(${i}`).style.backgroundColor = 'gray'
+        }
+        guessDock = [];
+    }
+}
+
+//Gameplay functions
 function generateCode() { //generates the code to be guessed by the player
     for(let i=0;i<4;i++) {
         let codeSequence = Math.floor(Math.random()*colors.length);
@@ -93,9 +152,9 @@ function dockPinColor(pinNumber, index, id) { //function to change colors of the
     } else if(colors[index]=== 'white') {
         document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "white";
     }
-    if(guessDock.length === 4) {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'gray';
-    }
+    // if(guessDock.length === 4 ) {
+    //     document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'gray';
+    // }
 }
 
 function accPinColor(pinNumber, index, id) { //function to change the colors of the accuracy pins based off the submitted guess
@@ -105,17 +164,6 @@ function accPinColor(pinNumber, index, id) { //function to change the colors of 
         document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'white';
     } else if(accColors[index]==='chocolate') {
         document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor ='chocolate';
-    }
-}
-
-function handleClick(e) {
-    if(guess.length<4) { //pushes colorindex values into the guess array and the guessDock array as the user selects them
-        guess.push(colors.indexOf(e.target.id));
-        guessDock.push(colors.indexOf(e.target.id));
-        guessDock.forEach((el,i) =>{
-            dockPinColor(i+1,el,'#guess-dock');
-    }) 
-    check();
     }
 }
 
@@ -134,10 +182,8 @@ function checkAccuracy(guess, code) { //Function to determine how accurate the u
 }
 
 function check() { //Checks for a valid guess length before generating the user input and accuracy of the guess onto the game board
-    if(guess.length === 4) {
         guess.forEach((el,i)=> {
             gamePinColor(i+1,el,'#guess'+guessAttempt); //Generates user input in appropriate guess slot on game board
-            guessDock = [];
         })
     checkAccuracy(guess,code);
     guessAcc.forEach((el,i) => {
@@ -145,7 +191,6 @@ function check() { //Checks for a valid guess length before generating the user 
     })
     checkForWin();
     guessAttempt++; //increments the attempts to reflect the 'round' the user is on
-    }
 }
 
 function checkForWin() {
@@ -174,16 +219,4 @@ function checkForWin() {
         }
     }
     return codeCracked;
-}
-
-function init() {
-    code = [];
-    guess = [];
-    guessAcc = [];
-    round = 1;
-    location.reload();
-}
-
-function startGame(e) {
-    e.preventDefault();
 }
