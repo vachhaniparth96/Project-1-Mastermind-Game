@@ -14,7 +14,7 @@ let codeCracked = false;
 const startButtonEl = document.querySelector('#start');
 const instructionsButtonEl = document.querySelector('#instructions');
 const eraseButtonEl = document.querySelector('#erase');
-const submitButtonEl = document.querySelector('#submit')
+const submitButtonEl = document.querySelector('#submit');
 
 //color buttons
 const redButtonEl = document.querySelector('#red');
@@ -165,14 +165,20 @@ function accPinColor(pinNumber, index, id) { //function to change the colors of 
 }
 
 function checkAccuracy(guess, code) { //Function to determine how accurate the user input is to the generated code
+    const codeInstance = {}
+
+    code.forEach((el) => { //Little snippet of code that ensures that if a color appears in the guess but not in the correct position, it only populates accuracy pins for the amount of times it appears in the generated code at max
+        codeInstance[el] = (codeInstance[el] || 0) + 1;
+    });
+
     for(let i=0;i<guess.length;i++) {
         if(guess[i]===code[i]) {
             guessAcc.push(accColors.indexOf('black'));
-        }
-        if(code.includes(guess[i]) && guess[i]!==code[i]) {
+        } else if(codeInstance[guess[i]] > 0) {
             guessAcc.push(accColors.indexOf('white'));
+            codeInstance[guess[i]]--;
         } 
-        if(guess[i]!==code[i] && code.includes(guess[i])===false) {
+        if(guess[i]!==code[i] && codeInstance[guess[i]] === 0) {
             guessAcc.push(accColors.indexOf('chocolate'));
         }
     }
