@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mastermind</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&family=Poiret+One&display=swap" rel="stylesheet">
     <script defer src="app.js"></script>
 </head>
 <body>
@@ -16,13 +17,14 @@
         <button class="start" id="start">Start</button>
         <button class="instructions" id="instructions">Instructions</button>
         <dialog class="instructions-popup">
-            <p>Welcome to Mastermind! This is a code-breaking game, with the objective of guessing the code before you run of attempts. The rules are the following: <br><br>You will make a guess of a sequence of four colors, after which the guess and its accuracy will pop up on the board. The accuracy logic is as follows: </p>
+            <p>Welcome to Mastermind! This is a code-breaking game, with the objective of guessing the code before you run of attempts. The rules are the following: <br><br>You will guess a sequence of four colors, after which the guess and its accuracy will pop up on the board once you hit the submit button. The accuracy logic is as follows: </p>
             <ul>
                 <li>Black: Depending on the amount of black, one or more of the colors is correct and in the correct position</li>
                 <li>White: Depending on the amount of white, one or more of the colors is correct, but not in the correct position</li>
                 <li>Nothing: Depending on the amount of unupdated pins, one or more of the colors is not in the sequence</li>
+                <li>The accuracy pin placement is not respective to the order of the colors in the guess. For example, if you have two black pins, it is not saying the first two spots are in the sequence at those locations, but that any two of the colors are placed where they need to be.</li>
             </ul>
-            <p>You will have to use your deductive reasoning skills using the accuracy hints to determine the code, which will be randomly generated. You will have 6 attempts to guess the code. Close these instructions to begin the game.</p>
+            <p>You will have to use your deductive reasoning skills using the accuracy hints to determine the code, which will be randomly generated. You will have 6 attempts to guess the code. Good luck!</p>
             <button class="close" id="close">Close</button>
         </dialog>
     </div>

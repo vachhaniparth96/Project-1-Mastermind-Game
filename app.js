@@ -168,7 +168,8 @@ function checkAccuracy(guess, code) { //Function to determine how accurate the u
     for(let i=0;i<guess.length;i++) {
         if(guess[i]===code[i]) {
             guessAcc.push(accColors.indexOf('black'));
-        } else if(code.includes(guess[i])) {
+        }
+        if(code.includes(guess[i]) && guess[i]!==code[i]) {
             guessAcc.push(accColors.indexOf('white'));
         } 
         if(guess[i]!==code[i] && code.includes(guess[i])===false) {
