@@ -11,22 +11,22 @@
     <header>
         <h1>M A S T E R M I N D</h1>
     </header>
+    <section>
     <div class="game-control">
         <button class="start" id="start">Start</button>
         <button class="instructions" id="instructions">Instructions</button>
         <dialog class="instructions-popup">
-            <p>Mastermind is a code-breaking game, where the purpose of the game is to guess the code within the specified amount of attempts. The rules are the following: <br><br>The player will make a guess of a sequence of four colors, after which the guess and its accuracy will pop up on the board. The accuracy logic is as follows: </p>
+            <p>Welcome to Mastermind! This is a code-breaking game, with the objective of guessing the code before you run of attempts. The rules are the following: <br><br>You will make a guess of a sequence of four colors, after which the guess and its accuracy will pop up on the board. The accuracy logic is as follows: </p>
             <ul>
                 <li>Black: Depending on the amount of black, one or more of the colors is correct and in the correct position</li>
                 <li>White: Depending on the amount of white, one or more of the colors is correct, but not in the correct position</li>
                 <li>Nothing: Depending on the amount of unupdated pins, one or more of the colors is not in the sequence</li>
             </ul>
-            <p>The code will be randomly generated and the user will have 6 attempts to guess the code.</p>
+            <p>You will have to use your deductive reasoning skills using the accuracy hints to determine the code, which will be randomly generated. You will have 6 attempts to guess the code. Close these instructions to begin the game.</p>
             <button class="close" id="close">Close</button>
         </dialog>
     </div>
-    <main>
-        <!-- <button></button> -->
+    <main class="main">
         <div class="acc left">
             <div class="accuracy" id="leave-empty">
                 <div></div>
@@ -116,8 +116,15 @@
                 <div class="guess-pin"></div>
             </div>
         </div>
-            
+        
     </main>
+
+    <div class="guess-dock" id="guess-dock">
+        <div class="dock-pin"></div>
+        <div class="dock-pin"></div>
+        <div class="dock-pin"></div>
+        <div class="dock-pin"></div>
+    </div>
     
     <div class="guess-input">
         <button class="guess" id="red"></button>
@@ -132,24 +139,6 @@
         <button class="play-again" id="play-again" autofocus>Play Again</button>
         <button class="quit" id="quit" autofocus>Quit</button>
     </dialog>
-
-    <!-- <dialog class="popup">
-        <p></p>
-        <button class="play-again" autofocus>Play Again</button>
-        <button class="quit" autofocus>Quit</button>
-    </dialog> -->
-    <!-- <div class="popup" id="win">Congratulations! You have cracked the code!
-        <div class = 'popup-buttons'>
-        <button class="play-again" id="play-again">Play Again</button>
-        <button class="quit" id="quit">Quit</button>
-        </div>
-    </div>
-
-    <div class="popup" id="lose">You have failed to crack the code.
-        <div class="'popup-buttons">
-        <button class="play-again" id="play-again">Play Again</button>
-        <button class="quit" id="quit">Quit</button>
-        </div>
-    </div> -->
+    </section>
 </body>
 </html>

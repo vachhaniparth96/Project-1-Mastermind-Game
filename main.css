@@ -1,18 +1,31 @@
 * {
     box-sizing: border-box;
-    /* border: 1px solid red; */
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header {
     text-align: center;
 }
 
+body {
+    background-color: lightcoral;
+}
+
 main {
     display: grid;
+    position: relative;
     grid-template-columns: .5fr 3fr;
     background-color: rgb(227, 213, 152);
+    border: 3px solid brown;
+    box-shadow: 0px 15px brown;
     border-radius: 40px;
-    margin: auto 25vmin;
+    margin: auto;
+    max-width: 500px;
     z-index: -1;
 }
 
@@ -31,67 +44,67 @@ main {
     display: flex;
     justify-content: space-evenly;
     padding: 2rem;
-
 }
+
 .guess-input {
     display: flex;
-    justify-content: space-evenly;
-    padding: 1.5rem;
+    justify-content: center;
+}
+
+.guess-dock {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.dock-pin {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: gray;
+    margin: 1rem;
 }
 
 .guess {
     border-radius: 50%;
+    box-shadow: 2px 5px 2px black;
+    margin: 1rem;
 }
 
 .guess-pin {
-    /* border: 1px solid red; */
     border-radius: 50%;
     width: 25px;
     height: 25px;
 }
 .accuracy-pin {
-    /* border: 1px solid red; */
     border-radius: 50%;
     width: 10px;
     height: 10px;
     background-color: chocolate;
+    margin: 0 0.1rem;
 }
 
-
 .popup {
-    /* display: flex;
-    flex-direction: column; */
-    position: relative;
-    position: fixed;
     border: 1px solid black;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    border-radius: 20px;
+    position: absolute;
     z-index: 9999;
     text-align: center;
-    /* visibility: hidden; */
-    /* background-color: rgb(191, 178, 117); */
-    background-color: red;
-    margin: 50vmin;
+    background-color: rgb(227, 213, 152);
+    margin: 300px auto;
+    max-width: 500px;
 }
 
 .instructions-popup {
-    /* display: flex;
-    flex-direction: column; */
-    position: relative;
-    position: fixed;
+    position: absolute;
     border: 1px solid black;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    border-radius: 20px;
     z-index: 9999;
     text-align: center;
-    /* visibility: hidden; */
-    /* background-color: rgb(191, 178, 117); */
-    background-color: red;
-    margin: 25vmin;
+    background-color: rgb(227, 213, 152);
+    margin: 160px auto;
+    max-width: 400px;
 }
 .popup-buttons{
     display: flex;
@@ -160,11 +173,7 @@ main {
     height: 25px;
 }
 
-#answer {
-    /* border: 2px solid blue */
-}
 #leave-empty {
-    /* border: 2px solid blue; */
     visibility: hidden;
 }
 
