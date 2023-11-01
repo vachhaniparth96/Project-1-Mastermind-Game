@@ -125,33 +125,33 @@ generateCode();
 
 function gamePinColor(pinNumber, index, id) { //function to change colors of guess pins based off the guess
     if(colors[index]==='red') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "red";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'red';
     } else if(colors[index]=== 'blue') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "blue";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'blue';
     } else if(colors[index]=== 'yellow') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "yellow";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'yellow';
     } else if(colors[index]=== 'green') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "green";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'green';
     } else if(colors[index]=== 'black') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "black";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'black';
     } else if(colors[index]=== 'white') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "white";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'white';
     }
 }
 
 function dockPinColor(pinNumber, index, id) { //function to change colors of the dock to allow the user to track their guess before they input the sequence
     if(colors[index]==='red') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "red";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'red';
     } else if(colors[index]=== 'blue') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "blue";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'blue';
     } else if(colors[index]=== 'yellow') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "yellow";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'yellow';
     } else if(colors[index]=== 'green') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "green";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'green';
     } else if(colors[index]=== 'black') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "black";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'black';
     } else if(colors[index]=== 'white') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = "white";
+        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'white';
     }
 }
 
@@ -168,21 +168,26 @@ function accPinColor(pinNumber, index, id) { //function to change the colors of 
 function checkAccuracy(guess, code) { //Function to determine how accurate the user input is to the generated code
     const codeInstance = {}
 
-    code.forEach((el) => { //Little snippet of code that ensures that if a color appears in the guess but not in the correct position, it only populates accuracy pins for the amount of times it appears in the generated code at max
+    code.forEach((el) => { //Little snippet of code that counts the number of instances the index of a color shows up in the generated code.
         codeInstance[el] = (codeInstance[el] || 0) + 1;
     });
-
-    for(let i=0;i<guess.length;i++) {
-        if(guess[i]===code[i]) { //If color is in both the guess and the code at that index, push black
+    console.log(codeInstance);
+    console.log(code)
+    console.log(guess)
+    for(let i=0;i<guess.length;i++) {//If color is in both the guess and the code at that index, push black
+        if (guess[i] === code[i] && codeInstance[guess[i]] > 0){
             guessAcc.push(accColors.indexOf('black'));
-        } else if(codeInstance[guess[i]] > 0) { //If color is in both the code and the guess but not at the index of the guess, puts in white pins, capping them out at the amount of time the color appears in the generated code if the color was guessed multiple times
+            console.log('value of i:', i, 'iteration #:', i+1,'value of code at index i:', code[i], 'value of guess at index i:', guess[i], 'number of occurences if the element in the generated code', codeInstance[guess[i]],'if')
+            codeInstance[guess[i]]--;
+        } else if(guess[i]!==code[i] && codeInstance[guess[i]] > 0) { //If color is in both the code and the guess but not at the index of the guess, puts in white pins, capping them out at the amount of time the color appears in the generated code if the color was guessed multiple times
             guessAcc.push(accColors.indexOf('white'));
+            console.log('value of i:', i, 'iteration #:', i+1,'value of code at index i:', code[i], 'value of guess at index i:', guess[i], 'number of occurences if the element in the generated code', codeInstance[guess[i]],'else if')
             codeInstance[guess[i]]--;
         } else { //if neither of the previous two conditions are met, keep the color of the pin chocolate
-            guessAcc.push(accColors.indexOf('chocolate'));
+                    guessAcc.push(accColors.indexOf('chocolate'));
         }
-    }
     guessAcc.sort();
+    }
 }
 
 function check() { //Checks for a valid guess length before generating the user input and accuracy of the guess onto the game board

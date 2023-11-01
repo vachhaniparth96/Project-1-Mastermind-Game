@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Mastermind</title>
-    <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&family=Poiret+One&display=swap" rel="stylesheet">
-    <script defer src="app.js"></script>
+    <link rel='stylesheet' href='main.css'>
+    <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&family=Poiret+One&display=swap' rel='stylesheet'>
+    <script defer src='app.js'></script>
 </head>
 <body>
     <header>
         <h1>M 4 S T 3 R M 1 N D</h1>
     </header>
     <section>
-    <div class="game-control">
-        <button class="start" id="start">Start</button>
-        <button class="instructions" id="instructions">Instructions</button>
-        <dialog class="instructions-popup">
+    <div class='game-control'>
+        <button class='start' id='start'>Start</button>
+        <button class='instructions' id='instructions'>Instructions</button>
+        <dialog class='instructions-popup'>
             <p>Welcome to Mastermind! This is a code-breaking game, with the objective of guessing the code before you run of attempts. The rules are the following: <br><br>You will guess a sequence of four colors, after which the guess and its accuracy will pop up on the board once you hit the submit button. The accuracy logic is as follows: </p>
             <ul>
                 <li>Black: Depending on the amount of black, one or more of the colors is correct and in the correct position</li>
@@ -25,125 +25,125 @@
                 <li>The accuracy pin placement is not respective to the order of the colors in the guess. For example, if you have two black pins, it is not saying the first two spots are in the sequence at those locations, but that any two of the colors are placed where they need to be.</li>
             </ul>
             <p>One other important note: colors are allowed to be used multiple times in the code sequence. You will have to use your deductive reasoning skills using the accuracy hints to determine the code, which will be randomly generated. You will have 6 attempts to guess the code. Good luck!</p>
-            <button class="close" id="close">Close</button>
+            <button class='close' id='close'>Close</button>
         </dialog>
     </div>
-    <main class="main">
-        <div class="acc left">
-            <div class="accuracy" id="leave-empty">
+    <main class='main'>
+        <div class='acc left'>
+            <div class='accuracy' id='leave-empty'>
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-                <div class="accuracy" id="accuracy6">
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
+                <div class='accuracy' id='accuracy6'>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
             </div>
-            <div class="accuracy" id="accuracy5">
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
+            <div class='accuracy' id='accuracy5'>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
             </div>
-            <div class="accuracy" id="accuracy4">
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
+            <div class='accuracy' id='accuracy4'>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
             </div>
-            <div class="accuracy" id="accuracy3">
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
+            <div class='accuracy' id='accuracy3'>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
             </div>
-            <div class="accuracy" id="accuracy2">
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
+            <div class='accuracy' id='accuracy2'>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
             </div>
-            <div class="accuracy" id="accuracy1">
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
-                <div class="accuracy-pin"></div>
+            <div class='accuracy' id='accuracy1'>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
+                <div class='accuracy-pin'></div>
             </div>
         </div>
 
-        <div class="game-board right">
-            <div class="game-pin" id="answer">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+        <div class='game-board right'>
+            <div class='game-pin' id='answer'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
-            <div class="game-pin" id="guess6">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+            <div class='game-pin' id='guess6'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
-            <div class="game-pin" id="guess5">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+            <div class='game-pin' id='guess5'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
-            <div class="game-pin" id="guess4">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+            <div class='game-pin' id='guess4'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
-            <div class="game-pin" id="guess3">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+            <div class='game-pin' id='guess3'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
-            <div class="game-pin" id="guess2">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+            <div class='game-pin' id='guess2'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
-            <div class="game-pin" id="guess1">
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
-                <div class="guess-pin"></div>
+            <div class='game-pin' id='guess1'>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
+                <div class='guess-pin'></div>
             </div>
         </div>
         
     </main>
-    <div class="guess-action">
-        <button class="erase" id="erase">Erase</button>
-        <button class="submit" id="submit">Submit</button>
+    <div class='guess-action'>
+        <button class='erase' id='erase'>Erase</button>
+        <button class='submit' id='submit'>Submit</button>
     </div>
 
-    <div class="guess-dock" id="guess-dock">
-        <div class="dock-pin"></div>
-        <div class="dock-pin"></div>
-        <div class="dock-pin"></div>
-        <div class="dock-pin"></div>
+    <div class='guess-dock' id='guess-dock'>
+        <div class='dock-pin'></div>
+        <div class='dock-pin'></div>
+        <div class='dock-pin'></div>
+        <div class='dock-pin'></div>
     </div>
     
-    <div class="guess-input">
-        <button class="guess" id="red"></button>
-        <button class="guess" id="blue"></button>
-        <button class="guess" id="yellow"></button>
-        <button class="guess" id="green"></button>
-        <button class="guess" id="black"></button>
-        <button class="guess" id="white"></button>
+    <div class='guess-input'>
+        <button class='guess' id='red'></button>
+        <button class='guess' id='blue'></button>
+        <button class='guess' id='yellow'></button>
+        <button class='guess' id='green'></button>
+        <button class='guess' id='black'></button>
+        <button class='guess' id='white'></button>
     </div>
 
-    <dialog class="popup" id="popup">
-        <button class="play-again" id="play-again" autofocus>Play Again</button>
-        <button class="quit" id="quit" autofocus>Quit</button>
+    <dialog class='popup' id='popup'>
+        <button class='play-again' id='play-again' autofocus>Play Again</button>
+        <button class='quit' id='quit' autofocus>Quit</button>
     </dialog>
     </section>
 </body>
