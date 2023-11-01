@@ -1,6 +1,6 @@
 // constants
 const colors = ['red', 'blue', 'yellow', 'green', 'black', 'white'];
-const accColors = ['black', 'white', 'chocolate'];
+const accColors = ['black', 'white'];
 // state variables
 let code = [];
 let guess =[];
