@@ -160,8 +160,6 @@ function accPinColor(pinNumber, index, id) { //function to change the colors of 
         document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor ='black';
     } else if(accColors[index]==='white') {
         document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor = 'white';
-    } else if(accColors[index]==='chocolate') {
-        document.querySelector(`${id} div:nth-child(${pinNumber})`).style.backgroundColor ='chocolate';
     }
 }
 
@@ -179,16 +177,16 @@ function checkAccuracy(guess, code) { //Function to determine how accurate the u
             guessAcc.push(accColors.indexOf('black'));
             console.log('value of i:', i, 'iteration #:', i+1,'value of code at index i:', code[i], 'value of guess at index i:', guess[i], 'number of occurences if the element in the generated code', codeInstance[guess[i]],'if')
             codeInstance[guess[i]]--;
-        } else if(guess[i]!==code[i] && codeInstance[guess[i]] > 0) { //If color is in both the code and the guess but not at the index of the guess, puts in white pins, capping them out at the amount of time the color appears in the generated code if the color was guessed multiple times
+        } 
+    }
+    for(let i=0;i<guess.length;i++){
+        if(guess[i]!==code[i] && codeInstance[guess[i]] > 0) { //If color is in both the code and the guess but not at the index of the guess, puts in white pins, capping them out at the amount of time the color appears in the generated code if the color was guessed multiple times
             guessAcc.push(accColors.indexOf('white'));
             console.log('value of i:', i, 'iteration #:', i+1,'value of code at index i:', code[i], 'value of guess at index i:', guess[i], 'number of occurences if the element in the generated code', codeInstance[guess[i]],'else if')
             codeInstance[guess[i]]--;
-        } else { //if neither of the previous two conditions are met, keep the color of the pin chocolate
-                    guessAcc.push(accColors.indexOf('chocolate'));
-        }
-    guessAcc.sort();
     }
-}
+    guessAcc.sort();
+}}
 
 function check() { //Checks for a valid guess length before generating the user input and accuracy of the guess onto the game board
         guess.forEach((el,i)=> {
