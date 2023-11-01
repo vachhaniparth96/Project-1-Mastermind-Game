@@ -7,7 +7,6 @@ let guess =[];
 let guessAcc = [];
 let guessDock = [];
 let guessAttempt = 1; //will increase to maximum of 6 to allow for looping of the base functionality
-let codeCracked = false;
 
 // cached elements
 //base buttons
@@ -59,6 +58,7 @@ function handleClick(e) {
         }) 
     }
 }
+
 function init() {
     code = [];
     guess = [];
@@ -101,6 +101,7 @@ function eraseButton(e) {
         document.querySelector(`#guess-dock > div:nth-child(${i}`).style.backgroundColor = 'gray'
     }
 }
+
 function submitButton(e) {
     e.preventDefault();
     if(guess.length===4) {
@@ -172,13 +173,12 @@ function checkAccuracy(guess, code) { //Function to determine how accurate the u
     });
 
     for(let i=0;i<guess.length;i++) {
-        if(guess[i]===code[i]) {
+        if(guess[i]===code[i]) { //If color is in both the guess and the code at that index, push black
             guessAcc.push(accColors.indexOf('black'));
-        } else if(codeInstance[guess[i]] > 0) {
+        } else if(codeInstance[guess[i]] > 0) { //If color is in both the code and the guess but not at the index of the guess, puts in white pins, capping them out at the amount of time the color appears in the generated code if the color was guessed multiple times
             guessAcc.push(accColors.indexOf('white'));
             codeInstance[guess[i]]--;
-        } 
-        if(guess[i]!==code[i] && codeInstance[guess[i]] === 0) {
+        } else { //if neither of the previous two conditions are met, keep the color of the pin chocolate
             guessAcc.push(accColors.indexOf('chocolate'));
         }
     }
@@ -203,7 +203,6 @@ function checkForWin() {
         p.innerText = 'Congratulations! You have cracked the code!'; //Adds winning condition message to the modal
         popup.insertBefore(p, playAgainButtonEl);
         popup.showModal(); //Displays winning condition modal
-        codeCracked = true;
         code.forEach((el,i) => { //Displays the secret code in the answer box.
             gamePinColor(i+1, el, '#answer');
         });
@@ -222,5 +221,4 @@ function checkForWin() {
             guessAcc=[];
         }
     }
-    return codeCracked;
 }
