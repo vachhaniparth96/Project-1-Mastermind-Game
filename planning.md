@@ -1,4 +1,7 @@
-Object of the Game:
+# Mastermind
+
+## Object of the Game
+
     The object of the game is to have the player guess a randomly generated code of colors within a specified amount of guesses
         - Considering starting off with 6 maximum attempts
           - If I can get that working, see if I can make it dynamic by either:
