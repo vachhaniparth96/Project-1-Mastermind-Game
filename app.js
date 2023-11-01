@@ -169,20 +169,16 @@ function checkAccuracy(guess, code) { //Function to determine how accurate the u
     code.forEach((el) => { //Little snippet of code that counts the number of instances the index of a color shows up in the generated code.
         codeInstance[el] = (codeInstance[el] || 0) + 1;
     });
-    console.log(codeInstance);
-    console.log(code)
-    console.log(guess)
+
     for(let i=0;i<guess.length;i++) {//If color is in both the guess and the code at that index, push black
         if (guess[i] === code[i] && codeInstance[guess[i]] > 0){
             guessAcc.push(accColors.indexOf('black'));
-            console.log('value of i:', i, 'iteration #:', i+1,'value of code at index i:', code[i], 'value of guess at index i:', guess[i], 'number of occurences if the element in the generated code', codeInstance[guess[i]],'if')
             codeInstance[guess[i]]--;
         } 
     }
     for(let i=0;i<guess.length;i++){
         if(guess[i]!==code[i] && codeInstance[guess[i]] > 0) { //If color is in both the code and the guess but not at the index of the guess, puts in white pins, capping them out at the amount of time the color appears in the generated code if the color was guessed multiple times
             guessAcc.push(accColors.indexOf('white'));
-            console.log('value of i:', i, 'iteration #:', i+1,'value of code at index i:', code[i], 'value of guess at index i:', guess[i], 'number of occurences if the element in the generated code', codeInstance[guess[i]],'else if')
             codeInstance[guess[i]]--;
     }
     guessAcc.sort();
