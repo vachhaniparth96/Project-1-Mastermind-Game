@@ -16,19 +16,26 @@ Welcome to Mastermind! Mastermind is originally a two-player code breaking board
 
 ## Screenshots
 
-Base Game Screen: ![Base Game Screen](./Images/Base_Game_Screen.png)
+Base Game Screen:
+![Base Game Screen](./Images/Base_Game_Screen.png)
 
-Instructions: ![Instructions Screen](./Images/Instructions.png)
+Instructions:
+![Instructions Screen](./Images/Instructions.png)
 
-Erase Button: ![Erase Button in Action](./Images/Erase_Button.gif)
+Erase Button:
+![Erase Button in Action](./Images/Erase_Button.gif)
 
-Submit Button: ![Submit Button in Action](./Images/Submit_Button.gif)
+Submit Button:
+![Submit Button in Action](./Images/Submit_Button.gif)
 
-Gameplay: ![Gameplay](./Images/Gameplay_And_Accuracy.png)
+Gameplay:
+![Gameplay](./Images/Gameplay_And_Accuracy.png)
 
-Winning Screen: ![Winning Condition Screen](./Images/Win_Screen.png)
+Winning Screen:
+![Winning Condition Screen](./Images/Win_Screen.png)
 
-Losing Screen: ![Losing Condition Screen](./Images/Lose_Screen.png)
+Losing Screen:
+![Losing Condition Screen](./Images/Lose_Screen.png)
 
 ## Technologies Used
 
