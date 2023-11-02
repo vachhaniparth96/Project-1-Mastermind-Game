@@ -44,6 +44,12 @@ Losing Screen:\
 * JavaScript
 
 ## Getting Started
+<a href="https://vachhaniparth96.github.io/Project-1-Mastermind-Game/">CR4CK TH3 C0D3</a>
+Here are some reminders:
+* The color order of the accuracy pins is not respective to the order of the guess
+* Press the instructions button at any time to see how to play the game
+* Let me know if you find any issues or ideas for improvements!
+* Have fun!
 
 ## Next Steps
 
