@@ -2,7 +2,7 @@
 
 ## About the Game
 
-Welcome to Mastermind! Mastermind is originally a two-player code breaking board game that was invented by a man named Mordecai Meirowitz in 1970. This rendition is a single-player version where the player is tasked with cracking a randomly generated code using their deductive reasoning skills by interpreting the hints given to them as the game progresses. The rules and gameplay loop for this game are relatively simple and are as follows:
+Welcome to Mastermind! Mastermind is originally a two-player code breaking board game that was invented by a man named Mordecai Meirowitz in 1970, which is based off another game called Bulls and Cows which is played using paper and pencil. This rendition is a single-player version where the player is tasked with cracking a randomly generated code using their deductive reasoning skills by interpreting the hints given to them as the game progresses. The rules and gameplay loop for this game are relatively simple and are as follows:
 
 * A random code of 4 colors is randomly generated from a selection of 6. Colors are allowed to be repeated within the code sequence.
 * The player has 6 attempts to figure out the code by submitting guesses.
@@ -44,6 +44,12 @@ Losing Screen:\
 * JavaScript
 
 ## Getting Started
+<a href="https://vachhaniparth96.github.io/Project-1-Mastermind-Game/">CR4CK TH3 C0D3</a>\
+Here are some reminders:
+* The color order of the accuracy pins is not respective to the order of the guess
+* Press the instructions button at any time to see how to play the game
+* Let me know if you find any issues or ideas for improvements!
+* Have fun!
 
 ## Next Steps
 
