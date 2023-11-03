@@ -185,9 +185,9 @@ function checkAccuracy(guess, code) { //Function to determine how accurate the u
 }}
 
 function check() { //Checks for a valid guess length before generating the user input and accuracy of the guess onto the game board
-        guess.forEach((el,i)=> {
+    guess.forEach((el,i)=> {
             gamePinColor(i+1,el,'#guess'+guessAttempt); //Generates user input in appropriate guess slot on game board
-        })
+    })
     checkAccuracy(guess,code);
     guessAcc.forEach((el,i) => {
         accPinColor(i+1,el,'#accuracy'+guessAttempt); //Generates accuracy results in appropriate slot on game board
@@ -217,7 +217,7 @@ function checkForWin() {
             
         } else {
             guess = [];
-            guessAcc=[];
+            guessAcc = [];
         }
     }
 }
